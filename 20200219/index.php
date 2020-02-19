@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css"  href="css/css.css" />
 
   </head>
-  <body class="text-center">
+  <body class="text-center view text-white" style="background-image: url('img/barber.png'); background-repeat: no-repeat; background-size: 100%;">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto menu ">
     <div class="inner">

@@ -54,8 +54,8 @@ function agendar(){
     function listar(){
               if(file_exists("agendamentos.xml")){
               $xml = simplexml_load_file("agendamentos.xml");
-              echo'<div class="text-center">
-                    <table class="table">
+              echo'<div class="text-center text-white">
+                    <table class="table table-striped table-dark">
                       <thead>
                           <tr>
                           <th scope="col">Nome</th>

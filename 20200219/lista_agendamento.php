@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css"  href="css/css.css"/>
 
   </head>
-  <body >
+  <body class="text-center text-white" style="background-image: url('img/barber.png'); background-repeat: no-repeat; background-size: 100%;">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="masthead mb-auto menu text-center">
     <div class="inner">
@@ -18,7 +18,7 @@
       </nav>
     </div>
   </header>
-    <div class="text-center">
+    <div class="text-center text-white">
             <?php
                 include "funcoes.inc";
                 listar();
