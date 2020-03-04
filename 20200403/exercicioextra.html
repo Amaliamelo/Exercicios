@@ -5,23 +5,29 @@
         <title>Page Title</title>
         <script>
             function exibir(nome,email,sexo,data_nasc){
-
-                if(nome==""&&email==""&&sexo==""&&data_nasc==""){
-                    alert("\nNome: preencher \nEmail: preencher \nSexo:preencher \nData_nasc=preencher");
-                }                
-                if(nome!=""&&email==""&&sexo==""&&data_nasc==""){
-                    alert("\nNome: "+nome+"\nEmail: preencher \nSexo:preencher \nData_nasc=preencher");
+				mensagem = "";
+				if(nome!=""&&email!=""&&sexo!=""&&data_nasc!=""){
+                    mensagem ="Nome:"+nome;
+					mensagem +="\nEmail:"+email;
+					mensagem +="\nSexo"+sexo;
+					mensagem +="\ndata de nascimento:"+data_nasc;
                 }
-                if(nome!=""&&email!=""&&sexo==""&&data_nasc==""){
-                    alert("\nNome: "+nome+"\nEmail: "+email+"\nSexo:preencher \nData_nasc=preencher");
-                }
-                if(nome!=""&&email!=""&&sexo!=""&&data_nasc==""){
-                    alert("\nNome: "+nome+"\nEmail: "+email+"\nSexo:"+sexo+"\nData_nasc=preencher");
-                }
-                if(nome!=""&&email!=""&&sexo!=""&&data_nasc!=""){
-                    alert( "\nNome:"+nome+"\nEmail:"+email+"\nSexo"+sexo+"\ndata de nascimento:"+data_nasc);
-                }
-
+				else{
+					mensagem ="Falta preencher campo(s): \n";
+					if(nome==""){
+                    mensagem +="\nNome";
+					}
+					if(email==""){
+                     mensagem +="\nEmail";
+					}
+					if(sexo==""){
+						mensagem+="\nSexo";
+					}
+					if(data_nasc==""){
+						 mensagem +="\nData_nasc";
+					}
+				}
+				alert(mensagem);
 }
         </script>
     </head>
@@ -37,7 +43,8 @@
             </p>
             <p>
                 <label>Sexo:</label>
-                <input type="text" name="sexo">
+                <input type="radio" name="sexo" value="Feminino">Feminino
+				<input type="radio" name="sexo" value ="masculino">Masculino
             </p>
             <p>
                 <label>Data de Nascimento:</label>
