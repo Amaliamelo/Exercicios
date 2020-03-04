@@ -1,0 +1,49 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Page Title</title>
+        <script>
+            function exibir(nome,email,sexo,data_nasc){
+
+                if(nome==""&&email==""&&sexo==""&&data_nasc==""){
+                    alert("\nNome: preencher \nEmail: preencher \nSexo:preencher \nData_nasc=preencher");
+                }                
+                if(nome!=""&&email==""&&sexo==""&&data_nasc==""){
+                    alert("\nNome: "+nome+"\nEmail: preencher \nSexo:preencher \nData_nasc=preencher");
+                }
+                if(nome!=""&&email!=""&&sexo==""&&data_nasc==""){
+                    alert("\nNome: "+nome+"\nEmail: "+email+"\nSexo:preencher \nData_nasc=preencher");
+                }
+                if(nome!=""&&email!=""&&sexo!=""&&data_nasc==""){
+                    alert("\nNome: "+nome+"\nEmail: "+email+"\nSexo:"+sexo+"\nData_nasc=preencher");
+                }
+                if(nome!=""&&email!=""&&sexo!=""&&data_nasc!=""){
+                    alert( "\nNome:"+nome+"\nEmail:"+email+"\nSexo"+sexo+"\ndata de nascimento:"+data_nasc);
+                }
+
+}
+        </script>
+    </head>
+    <body>
+        <form name="form2">
+            <p>
+                <label>Nome:</label>
+                <input type="text" name="nome">
+            </p>
+            <p>
+                <label>Email:</label>
+                <input type="text" name="email">
+            </p>
+            <p>
+                <label>Sexo:</label>
+                <input type="text" name="sexo">
+            </p>
+            <p>
+                <label>Data de Nascimento:</label>
+                <input type="date" name="data_nasc">
+            </p>
+            <input type="button" value="exibir" onclick="exibir(document.form2.nome.value,document.form2.email.value,document.form2.sexo.value,document.form2.data_nasc.value);"/>
+        </form>
+    </body>
+</html>
