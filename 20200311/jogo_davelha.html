@@ -1,0 +1,141 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Jogo da velha</title>
+        <script>
+            var cont=0;//variavel global//
+            var matriz = new Array(3);
+            for(i=0;i<3;i++){
+               matriz[i] = new Array(3);
+            }
+
+             function valida_jogada(campo){
+                valor=campo.value;
+                op=campo.name;
+                if(valor=="x"||valor=="0"){
+                    if(cont%2==0){
+                        if(valor=='x'){
+                            preenche_matriz(valor,op);
+                            //ganhou();
+                            cont++;
+                        }
+                        else{
+                            alert("Não é a sua vez de jogar");
+                        }
+                            
+                    }else{
+                        if(valor=="0"){
+                            preenche_matriz(valor,op);
+                            //ganhou();
+                            cont++;
+                        }
+                        else{
+                            alert("Não é a sua vez de jogar");
+                            
+                            
+                        }
+                    }
+                }
+                else{
+                    alert("jogada invalida");
+                    valor="";
+                }
+                function preenche_matriz(valor,op){
+                    for(i=0;i<3;i++){
+                        for(j=0;j<3;j++){
+                            if(op==i+""+j)
+                                matriz[i][j]=valor;
+                        }
+                    }
+                }
+                function ganhou(){
+                    dp_x=0;
+                    dp_zero=0;
+                    ds_x=0;
+                    ds_zero=0;
+                    for(i=0;i<3;i++){
+                        xLinha=0;
+                        zero_linha=0;
+                        x_coluna=0;
+                        zero_coluna=0;
+                        for(j=0;j<3;j++){
+                            if(matriz[i][j]=="X"){
+                                xLinha++;
+                                
+                            }
+                            else if(matriz[i][j]=="0"){
+                                zero_linha++;
+                            }
+                            if(matriz[j][i]=="X"){
+                                x_coluna++;
+                            }
+                            else if(matriz[i][j]=="0"){
+                                zero_coluna++;
+                            }
+
+                            if(j==i){
+                                if(matriz[i][j]=="X"){
+                                    dp_x++;
+                                }
+                                else if(matriz[i][j]=="0"){
+                                    dp_zero++;
+                                }
+                            }
+                            if(i+j==2){
+                                if(matriz[i][j]=="X"){
+                                    ds_x++;
+                                }
+                                else if(matriz[i][j]=="0"){
+                                    ds_zero++;
+                                }
+                            }
+                        }
+                        if(xLinha==3 || x_coluna==3){
+                            alert("ganhou X");
+                        }
+                        else if(zero_coluna==3 || zero_linha==3){
+                            alert("Ganhou 0");
+                        }
+                        else{
+                            alert("não ganhou");
+                        }
+                        
+                    }
+                    if(dp_x==3 || ds_x==3){
+                        alert("ganhou X");
+                    }
+                    else if(dp_zero==3 || ds_zero==3){
+                        alert("Ganhou 0");
+                    }
+                    else{
+                        alert("não ganhou");
+                    }                     
+                    
+                }
+                    
+                
+            }
+        </script>
+    </head>
+    <body>
+        <div id="msg"></div>
+        <table border="1">
+            <tr>
+                <td><input type="text" name="00" onblur="valida_jogada(this);"/></td>
+                <td><input type="text" name="01" onblur="valida_jogada(this);"/></td>
+                <td><input type="text" name="02" onblur="valida_jogada(this);"/></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="10" onblur="valida_jogada(this);"/></td>
+                <td><input type="text" name="11" onblur="valida_jogada(this);"/></td>
+                <td><input type="text" name="12" onblur="valida_jogada(this);"/></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="20" onblur="valida_jogada(this);"/></td>
+                <td><input type="text" name="21" onblur="valida_jogada(this);"/></td>
+                <td><input type="text" name="22" onblur="valida_jogada(this);"/></td>
+            </tr>
+        </table>
+    </body>
+</html>
